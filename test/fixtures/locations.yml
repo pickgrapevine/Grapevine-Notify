@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address_line_1: The New Building
+  address_line_2: 132 Ceasar Chavez
+  address_line_3: Unit 20
+  city: San Antonio
+  state: Texas
+  zip: 78213
+  phone_number_1: 2107892121
+  phone_number_2: 2107901121
+  phone_number_3:
+  name: Boo's Food
+
+two:
+  address_line_1: 101 My Street
+  address_line_2:
+  address_line_3:
+  city: San Antonio
+  state: Texas
+  zip: 78121
+  phone_number_1: 2108921234
+  phone_number_2:
+  phone_number_3:
+  name: San Antonio BBQ
