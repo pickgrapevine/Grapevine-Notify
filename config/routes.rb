@@ -1,4 +1,6 @@
 GrapevineNotify::Application.routes.draw do
+  get "location/search"
+
   get "signup/index"
 
   # The priority is based upon order of creation:
