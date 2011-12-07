@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require_relative "../../lib/location"
+require_relative "../../lib/review"
 
 url = "http://www.yelp.com/biz/zinc-bistro-and-wine-bar-san-antonio"
 doc = Nokogiri::HTML(open(url))

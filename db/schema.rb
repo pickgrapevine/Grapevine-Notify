@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204191124) do
+ActiveRecord::Schema.define(:version => 20111207181147) do
 
   create_table "locations", :force => true do |t|
     t.string   "address_line_1"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(:version => 20111204191124) do
     t.string   "phone_number_2"
     t.string   "phone_number_3"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "author"
+    t.string   "author_location"
+    t.string   "recommend"
+    t.integer  "rating"
+    t.text     "comment"
+    t.datetime "date"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
