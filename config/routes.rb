@@ -1,4 +1,6 @@
 GrapevineNotify::Application.routes.draw do
+  resources :reviews
+
   get "review/index"
 
   get "location/search"

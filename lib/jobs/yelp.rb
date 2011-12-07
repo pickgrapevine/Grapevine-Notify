@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require_relative "../../lib/location"
+require_relative "../../lib/review"
 
 module Yelp
 
