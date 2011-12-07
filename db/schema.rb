@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207181147) do
+ActiveRecord::Schema.define(:version => 20111207205815) do
 
   create_table "locations", :force => true do |t|
     t.string   "address_line_1"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20111207181147) do
   end
 
   create_table "reviews", :force => true do |t|
-    t.string   "author"
+    t.string   "auther"
     t.string   "author_location"
     t.string   "recommend"
     t.integer  "rating"

@@ -1,8 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-require_relative "../../lib/location"
-require_relative "../../lib/review"
+
 
 module Yelp
 
@@ -24,7 +23,7 @@ module Yelp
     parsed_review.author_location = review.css("p.reviewer_info").text
     parsed_review.date = review.css("em.dtreviewed span").first[:title]
     parsed_review.rating = review.css("div.rating .star-img img").first[:title][/[0-9]*\.?[0-9]+/]
-    parsed_review.comment = review.css("p.review_comment").text
+    parsed_review.comment = review.css("p.review_comment").first.html
     parsed_review.save!
     
   end
