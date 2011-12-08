@@ -12,8 +12,8 @@ module Yelp
   #return my_html #need some help
 #end
 
-#def self.parse_section(location, index)
-  #my_html = read_html "http://yelp.com#{location[:url]}=#{index}" #need help understanding
+def self.parse_section()
+  #my_html = read_html "http://yelp.com#{location[:url]}=#{index}"
   testurl = "http://www.yelp.com/biz/zinc-bistro-and-wine-bar-san-antonio"
   doc = Nokogiri::HTML(open(testurl))
   puts testurl
@@ -23,11 +23,11 @@ module Yelp
     parsed_review.author_location = review.css("p.reviewer_info").text
     parsed_review.date = review.css("em.dtreviewed span").first[:title]
     parsed_review.rating = review.css("div.rating .star-img img").first[:title][/[0-9]*\.?[0-9]+/]
-    parsed_review.comment = review.css("p.review_comment").first.html
+    parsed_review.comment = review.css("p.review_comment").text
     parsed_review.save!
     
   end
-#end
+end
 
 end
 
