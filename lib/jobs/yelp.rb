@@ -32,6 +32,7 @@ def self.parse_section(index)
     parsed_review = Review.new
     parsed_review.author = review.css("li.user-name a").text
     parsed_review.author_location = review.css("p.reviewer_info").text
+    #need help with getting date from sting to datetime, was trying to use gem 'chronic' to help.
     parsed_review.date = review.css("em.dtreviewed span").first[:title]
     parsed_review.rating = review.css("div.rating .star-img img").first[:title][/[0-9]*\.?[0-9]+/]
     parsed_review.comment = review.css("p.review_comment").text
