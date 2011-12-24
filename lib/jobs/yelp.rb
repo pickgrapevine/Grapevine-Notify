@@ -16,8 +16,8 @@ def self.read_html(url)
 end  
 
 def self.parse_section(location, index)
-  url = "http://www.yelp.com/#{location[:url]}=#{index}"
-  doc = Nokogiri::HTML(open(url))
+  my_html = read_html "http://www.yelp.com/#{location[:url]}=#{index}"
+  doc = Nokogiri::HTML(open(my_html))
   doc.css("ul li.review").each do |review|
     parsed_review = Review.new
     parsed_review.author = review.css("li.user-name a").text
@@ -32,7 +32,7 @@ end
 def self.parse_satx_restaurants()
   found_restaurants = Array.new
   job_start_time = Time.now
-  page_count = parse_restaurants_count
+  count = parse_restaurants_count
   start_index = 0
   while(start_index  < count)do
     start_parse = Time.now
@@ -54,14 +54,14 @@ class Parser
   #copied verbatim
   def all
     @san_antonio.each do |sa_biz|
-      parse_all_reviews(sa_biz)
+      parse_all_sections(sa_biz)
     end
   end
   
   #currently not implemented in rake task, need walkthrough
   def customers
     @customers.each do |customer|
-     parse_all_reviews(customer)
+     parse_all_sections(customer)
      end
   end
     
@@ -87,16 +87,13 @@ private
     Nokogiri::HTML(open("http://www.yelp.com#{location.url}")).css("span.review-count span.count").inner_text.to_i
   end
 
-  def parse_all_reviews(location)
-    job_start_time = Time.now
-    page_count = parse_review_count(location)
+  def parse_all_sections(location)
+    count = parse_review_count(location)
     start_index = 0
-    while(start_index < page_count)
+    while(start_index < count)
       Yelp::parse_section(location, start_index)
       start_index = start_index + 40
     end
-    puts "This actually f*&king worked"
-    puts "Total time to parse this business' reviews was #{Time.now - job_start_time}"
   end
 
 end
