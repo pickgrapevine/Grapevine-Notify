@@ -10,8 +10,8 @@ module Yelp
 
 class Parser
   def initialize()
-    @all_restaurants_link = "http://www.yelp.com/search?find_loc=San+Antonio%2C+TX&cflt=restaurants#start="
-    @san_antonio = parse_satx_restaurants
+    @all_locations_link = "http://www.yelp.com/search?find_loc=San+Antonio%2C+TX&cflt=restaurants#start="
+    @san_antonio = parse_satx_locations
     @customers = [{:name=>"El Milagrito",:url=>"/biz/el-milagrito-cafe-san-antonio?rpp=40&sort_by=date_desc&start="}]
   end
 
@@ -41,26 +41,24 @@ private
 
   #TODO: move to more of a paging concept. Should have a method get "total pages" instead of "get resturaunts count"
   #TODO: rename all references from "resturaunts" to "location"
-  def parse_restaurants_count()
+  def parse_locations_count()
       #had trouble with this section so ended up copying it
-      td = Nokogiri::HTML(open(@all_restaurants_link)).css("table.fs_pagination_controls tr td:first-of-type span").first
+      td = Nokogiri::HTML(open(@all_locations_link)).css("table.fs_pagination_controls tr td:first-of-type span").first
       td.inner_text.split(' ')[4].to_i
   end
 
   #need a walkthrough on how this happens
   # think of index as page if page is zero based (first page is 0, second page is 1 and so on)
   #TODO: rename the variable "index" to a variable named "page"
-  def parse_restaurants_list(index="")
-    found_restaurants = Array.new
-    Nokogiri::HTML(open("#{@all_restaurants_link}#{index}")).css("div.businessresult") do |location|
+  def parse_locations_list(index="")
+    found_locations = Array.new
+    Nokogiri::HTML(open("#{@all_locations_link}#{index}")).css("div.businessresult") do |location|
       title_link = location.css("h4.itemheading a").first
       found = Location.new(:url=>title_link[:href],:name=>title_link.inner_html.sub(/[0-9]*\./,''))
-      found_restaurants << found
+      found_locations << found
     end
-    found_restaurants
+    found_locations
   end
-
-
 
   #used to parse all reviews of a location
   def parse_all_sections(location)
@@ -80,7 +78,7 @@ private
   
   #TODO: rename to parse review
   def parse_section(location, index)
-    my_html = read_html "http://www.yelp.com/#{location[:url]}=#{index}"
+    my_html = read_html "http://www.yelp.com#{location[:url]}=#{index}"
     doc = Nokogiri::HTML(open(my_html))
     doc.css("ul li.review").each do |review|
       parsed_review = Review.new
@@ -94,19 +92,19 @@ private
   end
   
   #TODO: this is temporary. should be replaced with a method to parse several locations
-  def parse_satx_restaurants()
-    found_restaurants = Array.new
+  def parse_satx_locations()
+    found_locations = Array.new
     job_start_time = Time.now
-    count = parse_restaurants_count
+    count = parse_locations_count
     start_index = 0
     while(start_index  < count)do
       start_parse = Time.now
-      found_restaurants << parse_restaurants_list(start_index)
+      found_locations << parse_locations_list(start_index)
       puts "parsed index #{start_index} elapsed #{(Time.now - start_parse)}"
       start_index = start_index + 10
     end
     puts "total time to parse restuarant list was #{Time.now - job_start_time}"
-    found_restaurants
+    found_locations
   end
 
 end
