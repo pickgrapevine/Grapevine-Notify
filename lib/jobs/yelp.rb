@@ -99,7 +99,7 @@ private
     start_index = 0
     while(start_index  < count)do
       start_parse = Time.now
-      found_locations << parse_locations_list(start_index)
+      parse_locations_list(start_index).each {|found_location| found_locations << found_location }
       puts "parsed index #{start_index} elapsed #{(Time.now - start_parse)}"
       start_index = start_index + 10
     end
