@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226213240) do
+ActiveRecord::Schema.define(:version => 20111229001255) do
 
   create_table "locations", :force => true do |t|
     t.string   "address_line_1"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20111226213240) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
 end

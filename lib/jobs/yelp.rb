@@ -15,6 +15,8 @@ module Yelp
       puts "total current locations #{@current_san_antonio_locations.count}"
       @san_antonio = parse_satx_locations
       puts "after parsing satx locations there are #{@san_antonio.count} locations"
+      @current_san_antonio_reviews = Review.where("id").all
+      puts "after parsing reviews there are #{[@current_san_antonio_reviews.count]} reviews"
       @customers = [{:name=>"El Milagrito",:url=>"/biz/el-milagrito-cafe-san-antonio?rpp=40&sort_by=date_desc&start="}]
     end
 
@@ -60,7 +62,7 @@ module Yelp
       puts "total locations on this page #{locations.count}"
       locations.each do |location|
         title_link = location.css("h4.itemheading a").first
-        found = Location.new(:url=>title_link[:href],
+        found = Location.new(:url=>title_link[:href], 
         :name=>title_link.inner_html.sub(/[0-9]*\./,''))
         found_locations << found
       end
@@ -114,7 +116,8 @@ module Yelp
         parsed_review.date = Date.strptime(review.css("em.dtreviewed span").first[:title], "%Y-%m-%d")
         parsed_review.rating = review.css("div.rating .star-img img").first[:title][/[0-9]*\.?[0-9]+/]
         parsed_review.comment = review.css("p.review_comment").text
-        parsed_review.save!
+        puts "checking if review from #{parsed_review.author} is in database"
+        save_new_review parsed_review
       end
     end
 
@@ -132,6 +135,14 @@ module Yelp
       end
       puts "total time to parse restuarant all san antonio locations was #{Time.now - job_start_time}"
       found_locations.flatten
+    end
+
+    def save_new_review(review)
+      puts "total current reviews #{@current_san_antonio_reviews.count}"
+     if !@current_san_antonio_reviews.include? review
+        puts "saved new review from #{review.author}"
+        review.save!
+      end
     end
 
     def save_new_location(location)

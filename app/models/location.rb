@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  has_many :reviews
   
   def == (other_location)
     address_line_1 == other_location.address_line_1 \
