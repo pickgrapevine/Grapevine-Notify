@@ -111,6 +111,8 @@ module Yelp
       end
       doc.css("ul li.review").each do |review|
         parsed_review = Review.new
+        #Help here on associations: I believe it would be...
+        #parsed_review = Review.locations.new  --- however this doesn't seem to work.
         parsed_review.author = review.css("li.user-name a").text
         parsed_review.author_location = review.css("p.reviewer_info").text
         parsed_review.date = Date.strptime(review.css("em.dtreviewed span").first[:title], "%Y-%m-%d")
