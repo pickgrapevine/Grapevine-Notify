@@ -10,6 +10,7 @@ module Yelp
 
   class Parser
     def initialize()
+      ActiveRecord::Base.logger = Logger.new(STDOUT)
       @all_locations_link = "http://www.yelp.com/search?find_loc=San+Antonio%2C+TX&cflt=restaurants#start="
       @current_san_antonio_locations = Location.where("city=:city",{:city=>"San Antonio"}).all
       puts "total current locations #{@current_san_antonio_locations.count}"
@@ -59,7 +60,6 @@ module Yelp
     def parse_location_page(page_index="")
       found_locations = Array.new
       locations = Nokogiri::HTML(open("#{@all_locations_link}#{page_index}")).css("div.businessresult")
-      puts "total locations on this page #{locations.count}"
       locations.each do |location|
         title_link = location.css("h4.itemheading a").first
         found = Location.new(:url=>title_link[:href], 
@@ -90,7 +90,6 @@ module Yelp
       
       my_html = read_html "http://www.yelp.com#{location.url}?rpp=40&sort_by=date_desc&start=#{page_index}"
       doc = Nokogiri::HTML(my_html)
-      puts "page_index is #{page_index}"
       if page_index == 0 #TODO: this is horrible please fix me
         street_address = doc.css("span.street-address").first.inner_html
         puts "street address text = #{street_address}"
@@ -111,15 +110,13 @@ module Yelp
       end
       doc.css("ul li.review").each do |review|
         parsed_review = Review.new
-        #Help here on associations: I believe it would be...
-        #parsed_review = Review.locations.new  --- however this doesn't seem to work.
         parsed_review.author = review.css("li.user-name a").text
         parsed_review.author_location = review.css("p.reviewer_info").text
         parsed_review.date = Date.strptime(review.css("em.dtreviewed span").first[:title], "%Y-%m-%d")
         parsed_review.rating = review.css("div.rating .star-img img").first[:title][/[0-9]*\.?[0-9]+/]
         parsed_review.comment = review.css("p.review_comment").text
-        puts "checking if review from #{parsed_review.author} is in database"
-        save_new_review parsed_review
+       # puts "checking if review from #{parsed_review.author} is in database"
+        save_new_review location, parsed_review
       end
     end
 
@@ -127,9 +124,9 @@ module Yelp
     def parse_satx_locations()
       found_locations = Array.new
       job_start_time = Time.now
-      count = 1
+      count = parse_locations_count
       page_index = 0
-      while page_index  < count  do
+      while page_index< count  do
         start_parse = Time.now
         found_locations << parse_location_page(page_index)
         puts "parsed page #{page_index+1} for satx locations. Time elapsed #{(Time.now - start_parse)}"
@@ -139,11 +136,15 @@ module Yelp
       found_locations.flatten
     end
 
-    def save_new_review(review)
-      puts "total current reviews #{@current_san_antonio_reviews.count}"
-     if !@current_san_antonio_reviews.include? review
+    # will search existing reviews to see if current review is present.
+    # if not it will store a new review
+    def save_new_review(location, review)
+     if !@current_san_antonio_reviews.include? review #needs to add location specifity to reviews
         puts "saved new review from #{review.author}"
-        review.save!
+        #this will only save if the location is already in the database
+       # puts "output of location reviews is #{result}"
+        location.reviews << review
+        raise "unable to save" unless location.save
       end
     end
 
