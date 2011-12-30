@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   # see http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
-  has_many :reviews
+  has_many :reviews , :autosave => true
    
   def == (other_location)
     address_line_1 == other_location.address_line_1 \
