@@ -13,8 +13,10 @@ gem 'nokogiri'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
+  gem 'sass-rails', '~> 3.1.5'
   gem 'uglifier', '>= 1.0.3'
+  gem 'recurly', '~> 2.0.10'
+  gem 'coffee-rails'
 end
 
 gem 'jquery-rails'
@@ -31,7 +33,13 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem "rspec-rails", :group => [:test, :development]
+
 group :test do
   # Pretty printed test output
-  gem 'turn', '~> 0.8.3', :require => false
+  gem 'turn', '~> 0.8.3' , :require => false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'webrat', '0.7.3'
 end

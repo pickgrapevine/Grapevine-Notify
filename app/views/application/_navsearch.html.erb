@@ -1,0 +1,34 @@
+<!--Navigation + Search-->
+<div class="fixed-width-wrapper border-radius-5px" id="navigation-bar">
+
+		<div id="g-navigation">
+			<ul class="simple-drop-down-menu">
+            	<li class="home-page current border-radius-left-5px">
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<%= link_to "Home", home_path  %>
+				</li>
+				<li>
+					<%= link_to "FAQ", faq_path  %>
+				</li>
+				<li>
+					<%= link_to "About Us", about_path  %>
+				</li>
+				<li>
+					<%= link_to "Blog", blog_path  %>
+				</li>
+				<li>
+					<%= link_to "Contact", contact_path  %>
+				</li>
+			</ul>
+		</div>
+        
+        <div id="g-search">
+        	<form action="" method="post">
+            	<div><input type="text" class="input-field border-radius-left-3px reset-text" value="Search here..."></div>
+                <div><button type="submit" title="Search" class="sprite"><em>Search</em></button></div>
+            </form>
+        </div>
+</div>
+<!--/Navigation + Search-->

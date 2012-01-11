@@ -15,3 +15,7 @@
 /tmp
 /.idea/
 *.iml
+
+#Ignore for precompiled stuff from asset pipeline
+.sass-cache/
+public/assets/

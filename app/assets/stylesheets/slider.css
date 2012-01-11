@@ -97,7 +97,7 @@ Author:Manh
 
 .maxx-theme .nivoSlider {
 	position:relative;
-	background:#fff url(../images/loading.gif) no-repeat 50% 50%;
+	background:#fff url(<%= asset_path 'loading.gif' %>) no-repeat 50% 50%;
 	height:370px;
 	width:960px;
 	margin:11px auto 0;
@@ -114,7 +114,7 @@ Author:Manh
 }
 
 .maxx-theme .nivo-controlNav,.maxx-theme .nivo-controlNav a,.maxx-theme .nivo-directionNav a{
-	background-image:url(../images/sprite.png);
+	background-image:url(<%= asset_path 'sprite.png' %>);
 	background-repeat:no-repeat
 }
 .maxx-theme .nivo-controlNav {

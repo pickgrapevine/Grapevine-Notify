@@ -1,9 +1,14 @@
 GrapevineNotify::Application.routes.draw do
+  match '/home', :to => 'pages#home'
+  match '/about', :to => 'pages#about_us'
+  match '/contact', :to => 'pages#contact_us'
+  match '/faq', :to => 'pages#faq'
+  match '/signup', :to => 'pages#sign_up'
+  match '/blog', :to => 'pages#blog'
+
   get "review/index"
 
   get "location/search"
-
-  get "signup/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +59,7 @@ GrapevineNotify::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'signup#index'
+   root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 
