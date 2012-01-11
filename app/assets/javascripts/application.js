@@ -5,7 +5,7 @@
 // the compiled file.
 //
 //= require_self
-//= require_tree .
+// require_tree .
 //= require_tree ./recurly
 //= require_tree ./slidedeck
 //= require jquery
