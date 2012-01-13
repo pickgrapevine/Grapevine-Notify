@@ -10,12 +10,16 @@ gem 'mysql'
 gem 'heroku'
 gem 'nokogiri'
 
+# Third Party Services
+gem 'recurly', '~> 2.0.10'
+gem 'sendgrid'
+gem 'hominid'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails', '~> 3.1.5'
   gem 'uglifier', '>= 1.0.3'
-  gem 'recurly', '~> 2.0.10'
   gem 'coffee-rails'
 end
 

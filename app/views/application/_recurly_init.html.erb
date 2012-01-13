@@ -1,0 +1,16 @@
+<script>
+  Recurly.config({
+    subdomain: 'grapevine'
+  , currency: 'USD'
+  , country: 'US'
+  });
+
+  Recurly.buildSubscriptionForm({
+    target: '#recurly-subscribe'
+  , planCode: 'simple'
+  , successURL: 'confirmation.html'
+  , distinguishContactFromBillingInfo: true
+  , collectCompany: true
+  , termsOfServiceURL: 'http://www.grapevine.com/tos'
+  });
+</script> 
