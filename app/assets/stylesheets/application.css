@@ -7,10 +7,10 @@
  *= require base
  *= require tipTip
  *= require css3
- *= require slider
- *= require_tree ./recurly
- *= require ./slidedeck/slidedeck-home-page
- *= require ./slidedeck/slidedeck.skin
- *= require ./slidedeck/custom
+ * require slider
+ * require_tree ./recurly
+ * require ./slidedeck/slidedeck-home-page
+ * require ./slidedeck/slidedeck.skin
+ * require ./slidedeck/custom
  *= require_self
 */

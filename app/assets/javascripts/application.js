@@ -7,13 +7,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require ./slidedeck/cufon-yui
-//= require ./slidedeck/TitilliumText.font
-//= require ./slidedeck/cufon-replace
-//= require ./slidedeck/scripts
-//= require ./slidedeck/jquery-mousewheel/jquery.mousewheel.min
-//= require ./slidedeck/slidedeck.jquery
-//= require_tree ./recurly
+// require ./slidedeck/cufon-yui
+// require ./slidedeck/TitilliumText.font
+// require ./slidedeck/cufon-replace
+// require ./slidedeck/scripts
+// require ./slidedeck/jquery-mousewheel/jquery.mousewheel.min
+// require ./slidedeck/slidedeck.jquery
+// require_tree ./recurly
 //= require_self
 // require_tree .
 

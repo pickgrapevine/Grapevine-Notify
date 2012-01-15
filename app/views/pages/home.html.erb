@@ -1,13 +1,25 @@
+<% content_for :head do%>
+  <%= stylesheet_link_tag "slidedeck/slidedeck-home-page" %>
+  <%= stylesheet_link_tag "slidedeck/slidedeck.skin" %>
+  <%= stylesheet_link_tag "slidedeck/custom" %>
+  <%= javascript_include_tag "slidedeck/cufon-yui" %>
+  <%= javascript_include_tag "slidedeck/TitilliumText.font"%>
+  <%= javascript_include_tag "slidedeck/cufon-replace"%>
+  <%= javascript_include_tag "slidedeck/scripts"%>
+  <%= javascript_include_tag "slidedeck/jquery-mousewheel/jquery.mousewheel.min"%>
+  <%= javascript_include_tag "slidedeck/slidedeck.jquery" %>
+
+<% end %> 
 <!--Body content-->
 <%= render "slider" %>
 
 <div class="full-width-wrapper">
-	<div class="fixed-width-wrapper" id="body-content">
+  <div class="fixed-width-wrapper" id="body-content">
 
-<%= render "getalertsbanner" %>
-<%= render "featuresvideo" %>
-<%= render "getintouch" %>
-    
-    </div>
+    <%= render "getalertsbanner" %>
+    <%= render "featuresvideo" %>
+    <%= render "getintouch" %>
+
+  </div>
 </div>
 <!--/Body content-->
