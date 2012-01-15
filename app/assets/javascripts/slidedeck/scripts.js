@@ -2002,11 +2002,7 @@ jQuery.fn.equalHeights = function() {
  
 
 /*=========================================================================
-* Maxx Smooth image Preloader v1.0
-* Author: Manh
-* Email:since.u.left@gmail.com
-* www.graphicriver.net/user/Manh
-
+* Smooth image Preloader v1.0
 */
 
 (function($)
@@ -2082,10 +2078,7 @@ jQuery.fn.equalHeights = function() {
 
 
 
-/*Maxx preview Overlay;
-//Author Manh
-//Email:since.u.left@gmail.com
-//Date Created: 09/11/2011
+/*preview Overlay;
 */
 (function($)
 {

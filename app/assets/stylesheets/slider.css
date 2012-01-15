@@ -95,29 +95,29 @@ Custom Nivo Slider Default Theme
 Author:Manh
 */
 
-.maxx-theme .nivoSlider {
+.gv-theme .nivoSlider {
 	position:relative;
 	background:#fff url(<%= asset_path 'loading.gif' %>) no-repeat 50% 50%;
 	height:370px;
 	width:960px;
 	margin:11px auto 0;
 }
-.maxx-theme .nivoSlider img {
+.gv-theme .nivoSlider img {
 	position:absolute;
 	top:0;
 	left:0;
 	display:none;
 }
-.maxx-theme .nivoSlider a {
+.gv-theme .nivoSlider a {
 	border:0;
 	display:block;
 }
 
-.maxx-theme .nivo-controlNav,.maxx-theme .nivo-controlNav a,.maxx-theme .nivo-directionNav a{
+.gv-theme .nivo-controlNav,.gv-theme .nivo-controlNav a,.gv-theme .nivo-directionNav a{
 	background-image:url(<%= asset_path 'sprite.png' %>);
 	background-repeat:no-repeat
 }
-.maxx-theme .nivo-controlNav {
+.gv-theme .nivo-controlNav {
 	position:absolute;
 	left:50%;
 	bottom:-26px;
@@ -128,7 +128,7 @@ Author:Manh
 	z-index:10
 }
 
-.maxx-theme .nivo-controlNav a {
+.gv-theme .nivo-controlNav a {
 	display:block;
 	width:16px;
 	height:16px;
@@ -139,30 +139,30 @@ Author:Manh
 	background-position:-664px -53px;
 	
 }
-.maxx-theme .nivo-controlNav a:first-child{
+.gv-theme .nivo-controlNav a:first-child{
 	margin-left:11px;
 }
-.maxx-theme .nivo-controlNav a.active {
+.gv-theme .nivo-controlNav a.active {
 	background-position:-664px -69px
 }
 
-.maxx-theme .nivo-directionNav a {
+.gv-theme .nivo-directionNav a {
 	display:block;
 	width:70px;
 	height:30px;
 	text-indent:-9999px;
 	border:0;
 }
-.maxx-theme .nivo-directionNav a.nivo-nextNav {
+.gv-theme .nivo-directionNav a.nivo-nextNav {
 	background-position:-826px -82px;
 	right:355px;
 }
-.maxx-theme .nivo-directionNav a.nivo-prevNav {
+.gv-theme .nivo-directionNav a.nivo-prevNav {
 	left:355px;
 	background-position:-826px -53px;
 }
 
-.maxx-theme .nivo-caption {
+.gv-theme .nivo-caption {
     font-family: Helvetica, Arial, sans-serif;
 	width:460px;
 	padding:5px 10px 10px;
@@ -171,15 +171,15 @@ Author:Manh
 	text-align:right;
 	min-height:65px;
 }
-.maxx-theme .nivo-caption h1{
+.gv-theme .nivo-caption h1{
 	margin-top:0;
 	margin-bottom:10px;
 }
-.maxx-theme .nivo-caption a {
+.gv-theme .nivo-caption a {
     color:#fff;
     border-bottom:1px dotted #fff;
 }
-.maxx-theme .nivo-caption a:hover {
+.gv-theme .nivo-caption a:hover {
     color:#fff;
 }
 #slider-wrapper{
