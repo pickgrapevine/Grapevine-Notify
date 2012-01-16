@@ -36,7 +36,14 @@
                     <span class="divider">&nbsp;</span>
                     <p><strong>Just enter in the business name of the restuaruant you want to follow bellow.</strong><br /><br />
                     One you hit the Submit button, you will get an email notice showing you a sample result.</p>
-              		<!--  <form name="business_name_test" method="post" action="??????????">
+
+                    <!-- TODO: Need Help here for form -->
+              		<%= form_tag locations_path, :method => 'get' do %>
+                        <%= text_field_tag :location_search, params[:location_search], data: {autocomplete_source: locations_path} %>
+                        <%= submit_tag "Search", :location_search => nil %>
+                    <% end %>
+
+                    <!--  <form name="business_name_test" method="post" action="??????????">
 					  <input type="text" name="business_name" size="100"/>
 				  <label>
 				   	  <input type="submit" value="Submit" />
@@ -53,10 +60,10 @@
                 </div>
             </dd>
 
-            <dt>Try It For Free</dt>
+            <dt>Check Your Email</dt>
             <dd>
                 <div class="copy wide">
-                    <h4 class="title">Enter Your Business Name</h4>
+                    <h4 class="title">Check Your Email</h4>
                     <a href="http://www.slidedeck/features">Learn More About Features</a>
                     <span class="divider">&nbsp;</span>
                     <p><strong>SlideDeck is packed with some seriously kick-ass features.</strong> Why waste time developing your own functions when you can utilize our rich API? Why even write code when you can use our Wordpress GUI.</p>
