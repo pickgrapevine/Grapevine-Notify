@@ -38,9 +38,9 @@
                     One you hit the Submit button, you will get an email notice showing you a sample result.</p>
 
                     <!-- TODO: Need Help here for form -->
-              		<%= form_tag locations_path, :method => 'get' do %>
-                        <%= text_field_tag :location_search, params[:location_search], data: {autocomplete_source: locations_path} %>
-                        <%= submit_tag "Search", :location_search => nil %>
+              		<%= form_tag "#", :method => 'get' do %>
+                        <%= text_field_tag :location_search %>
+                        <%= submit_tag "Search" %>
                     <% end %>
 
                     <!--  <form name="business_name_test" method="post" action="??????????">

@@ -1,6 +1,6 @@
 class LocationController < ApplicationController
   def index
-  	@locations = Location.order(:name).where("name like ?", "#{params[:location_search]}")
+  	render json: Location.where("name like lower(?)", "%#{params[:location_search].downcase}%").order(:name)
   end
 
 end
