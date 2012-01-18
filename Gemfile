@@ -2,6 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+#Gems for APIs
+gem "citygrid_api", :git => "git://github.com/CityGrid/citygrid_api.git"
+gem 'oauth'
+gem 'httparty'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
