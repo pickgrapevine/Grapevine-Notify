@@ -4,22 +4,22 @@
   <script type="text/javascript">
     $(function(){
         Recurly.config({
-subdomain: 'grapevine'
-, currency: 'USD'
-, country: 'US'
-});
+          subdomain: 'grapevine'
+          , currency: 'USD'
+          , country: 'US'
+          });
+          
+          Recurly.buildSubscriptionForm({
+          target: '#recurly-subscribe'
+          , planCode: 'simple'
+          , successURL: 'confirmation.html'
+          , distinguishContactFromBillingInfo: true
+          , collectCompany: true
+          , termsOfServiceURL: 'http://www.pickgrapevine.com/tos'
+          });
 
-        Recurly.buildSubscriptionForm({
-target: '#recurly-subscribe'
-, planCode: 'simple'
-, successURL: 'confirmation.html'
-, distinguishContactFromBillingInfo: true
-, collectCompany: true
-, termsOfServiceURL: 'http://www.pickgrapevine.com/tos'
-});
-
-        });
-</script>
+          });
+  </script>
 <% end %>
 <!--Body content-->
 <div class="full-width-wrapper">
@@ -29,7 +29,7 @@ target: '#recurly-subscribe'
     <p>
     Reviews are checked daily about your company (or competitor), when we find one we'll send you a Text or Email directly to you. Never be in the dark again.
     </p>
-    <div id="recurly-subscribe">
+    <div id ="recurly-subscribe">
     </div>
 
   </div>
