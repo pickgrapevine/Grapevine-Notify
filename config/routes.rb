@@ -8,7 +8,7 @@ GrapevineNotify::Application.routes.draw do
 
   get "review/index"
 
-  get "location/search"
+  get "location/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

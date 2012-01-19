@@ -26,7 +26,7 @@
         
         <div id="g-search">
         	<form action="" method="post">
-            	<div><input type="text" class="input-field border-radius-left-3px reset-text" value="Search here..."></div>
+            	<div><input type="text" class="input-field border-radius-left-3px reset-text" value="Search Here..." onfocus = "if (this.value == 'Search Here...') {this.value = '';}" onblur = "if (this.value == '') {this.value = 'Search Here...';}" ></div>
                 <div><button type="submit" title="Search" class="sprite"><em>Search</em></button></div>
             </form>
         </div>

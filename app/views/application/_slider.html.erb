@@ -8,12 +8,12 @@
                 <div class="copy">
                     <h4 class="title">What is Grapevine?</h4>
                     <span class="divider">&nbsp;</span>
-                    <p><strong>Fast Email notifications for customer reviews.</strong> Get notified for reviews posted online via email messaging or SMS text. Respond right then and there.</p>
+                    <p><strong>Fast Email and Text Notifications for Online Customer Reviews.</strong> <br />Get notified for reviews posted online via email messaging or SMS text. Respond right then and there.</p>
                     <h5 class="small-title">Benefits:</h5>
                     <ul class="no-float">
-                        <li>View full review in email</li>
-                        <li>Links for quick response</li>
-                        <li>SMS for non-smart phones</li>
+                        <li>Monitor Negative & Positive Online Reviews.</li>
+                        <li>Increase Customer Service, Increase Profits.</li>
+                        <li>All for Price of Four Cups of Starbucks</li>
                     </ul>
                 </div>
                 <%= image_tag("slidedeck/slide_1.jpg", :class => "cardImage") %>
@@ -31,33 +31,31 @@
             <dt>Try It For Free</dt>
             <dd>
                 <div class="copy wide">
-                    <h4 class="title">Enter Business Name</h4>
-                    <a href="http://www.slidedeck/features">Skip &amp; Sign Up Now</a>
+                    <h4 class="title">Try It For Free</h4>
+                    <%= link_to 'Skip & Sign Up Now', signup_path %>
                     <span class="divider">&nbsp;</span>
-                    <p><strong>Just enter in the business name of the restuaruant you want to follow bellow.</strong><br /><br />
-                    One you hit the Submit button, you will get an email notice showing you a sample result.</p>
-              		<!--  <form name="business_name_test" method="post" action="??????????">
-					  <input type="text" name="business_name" size="100"/>
-				  <label>
-				   	  <input type="submit" value="Submit" />
-				  </label>
-				</form> -->
-			 <div id="g-search">
-        	<form action="" method="post">
-            	<div><input type="text" class="input-field border-radius-left-3px reset-text" value="Search here..."></div>
-                <div><button type="submit" title="Search" class="sprite"><em>Search</em></button></div>
-            </form>
-        </div>
+                    <p><strong>Just enter in the business name of the restaurant you want to follow below.</strong><br /><br />
+                    One you hit the Submit button, you will get an email notice showing you a sample result.<br /><em>Please note we are only servicing San Antonio, TX, USA at the moment during the Beta period.</em></p>                      
+                <div id="g-search">
+                <%= form_tag "/review/email", :method => 'post' do %>
+                    <div>
+                    <%= text_field_tag :location_search, 'Enter Your Business Here..', :class => 'input-field border-radius-left-3px reset-text', :onfocus => "if (this.value == 'Enter Your Business Here..') {this.value = '';}", :onblur => "if (this.value == '') {this.value = 'Enter Your Business Here..';}", :autocomplete => 'off' %>
+                    </div>
+                    <div>
+                    <%= button_tag 'Get Review', :type => 'submit', :class => 'sprite' %>
+                    </div>
+                <% end %>
+                </div>
 				<br /><br />
 				<p>If you don't want to wait, just go straight to our sign up page now!</p>
                 </div>
             </dd>
 
-            <dt>Try It For Free</dt>
+            <dt>Check Your Email</dt>
             <dd>
                 <div class="copy wide">
-                    <h4 class="title">Enter Your Business Name</h4>
-                    <a href="http://www.slidedeck/features">Learn More About Features</a>
+                    <h4 class="title">Check Your Email</h4>
+                    <a href="http://www.slidedeck/features">You'll recieve the last review we could find about your business online.</a>
                     <span class="divider">&nbsp;</span>
                     <p><strong>SlideDeck is packed with some seriously kick-ass features.</strong> Why waste time developing your own functions when you can utilize our rich API? Why even write code when you can use our Wordpress GUI.</p>
                 </div>
