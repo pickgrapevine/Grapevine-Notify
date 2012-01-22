@@ -4,7 +4,7 @@ describe PagesController do
   render_views
 
   before(:each)do
-    @base_title = "Grapevine - Manage Your Reviews"
+    @base_title = "Grapevine - Email and Text Online Review Monitoring"
   end
 
   describe "GET 'home'" do
@@ -28,8 +28,7 @@ describe PagesController do
 
     it "should have the correct title" do
       get 'sign_up'
-      response.should have_selector("title", 
-        :content => "#{@base_title} | Sign Up")
+      response.should have_selector("title", :content => "#{@base_title} | Sign Up")
     end
   end
 

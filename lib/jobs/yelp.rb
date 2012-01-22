@@ -9,6 +9,7 @@ require_relative "../http_parser"
 
 class YelpParser
   include HttpParser
+
   def initialize()
     @all_locations_link = "http://www.yelp.com/search?find_loc=San+Antonio%2C+TX&cflt=restaurants"
   end
