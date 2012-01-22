@@ -16,18 +16,21 @@ class YelpApiParser
 		consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-
+		#path to use while testing/dev
 		path = "/v2/business/las-ramblas-san-antonio"
-		#
-		#path = "/v2/business/#{location.url}"
+
+		#path to use in production, accepting location
+			#path = "/v2/business/#{location.url}"
 
 		# Using Ruby JSON
 		business = JSON.parse(access_token.get(path).body)
 
 		#play with the data
 		reviews = Array.new
-		review_count = business["review_count"]
-		overall_rating = business["rating"]
+		
+		#we will pull these later, not now
+			#review_count = business["review_count"]
+			#overall_rating = business["rating"]
 
 		business["reviews"].each do |reviews|
 			parsed_review = Review.new
@@ -37,7 +40,6 @@ class YelpApiParser
 			parsed_review.date = reviews["time_created"]
 			reviews << parsed_review
 		end
-		p reviews
 	end
 
 end
