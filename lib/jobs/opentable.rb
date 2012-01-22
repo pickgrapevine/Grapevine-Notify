@@ -2,16 +2,23 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-url = "http://www.opentable.com/las-ramblas-at-hotel-contessa"
-doc = Nokogiri::HTML(open(url))
+class OpenTableHTMLParser
 
-puts url, doc.at_css("title").text, "====================="
+	def parse_all_reviews_for_location(location)
 
-doc.css("div#BVRRDisplayContentBodyID.BVRRDisplayContentBody").each do |review|
-  puts "hello"
-  #puts "Author: " + review.css("BVRRCustomOTNickname").text
-  #puts "Date Reviewed: " + review.css("BVRRAdditionalFielddinedate").text
-  puts "Review Title: " + review.at_css("span.BVRRValue.BVRRReviewTitle").text
-  #puts "Rating: " +  review.css("BVRRRatingNormalImage img").attr("alt").first#.replace(/[^0-9.]/g, "")
-  #puts "Review: " + review.css("BVRRReviewText").text
+		url = "http://www.opentable.com/las-ramblas-at-hotel-contessa"
+		doc = Nokogiri::HTML(open(url))
+
+		#puts url, doc.at_css("title").text, "====================="
+		reviews = Array.new
+		doc.css("div#BVSubmissionPopupContainer").each do |review|
+		  parsed_review = Review.new
+		  parsed_review.rating = review.css("div#BVRRRatingOverall_Review_Display div img").first[:title].chars.first
+		  parsed_review.author = "OpenTable Diner Since " + review.at_css("span.BVRRValue.BVRRAdditionalField.BVRRAdditionalFieldusercreatedate").text
+		  parsed_review.comment = review.at_css("span.BVRRReviewText").text
+		  parsed_review.date = review.at_css("span.BVRRValue.BVRRAdditionalFielddinedate").text
+		  parsed_review.title = review.at_css("span.BVRRValue.BVRRReviewTitle").text
+		  reviews << parsed_review
+		end
+	end
 end
