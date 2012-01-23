@@ -1,3 +1,4 @@
+#API wrapper for Yelp API
 require 'rubygems'
 require 'oauth'
 require 'JSON'
@@ -5,7 +6,7 @@ require_relative "../../app/models/review"
 
 class YelpApiParser
 
-	 def parse_all_reviews_for_location(location)
+	 def parse_reviews_firstresponsepage_for_location(location)
 	 	consumer_key = 'CoPn_PDLyBIom28EwW_vcg'
 		consumer_secret = 'v6VqDXMzGUpLEnbCGx6xDAwG4OM'
 		token = '8UmXzrrFzbAffWuTpjTiOQkiFKJ3KZzY'
@@ -16,21 +17,17 @@ class YelpApiParser
 		consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-		#path to use while testing/dev
-		path = "/v2/business/las-ramblas-san-antonio"
-
 		#path to use in production, accepting location
-			#path = "/v2/business/#{location.url}"
+		path = "/v2/business/#{location}"
+
+		#path to use while testing/dev
+		#path = "/v2/business/las-ramblas-san-antonio"
 
 		# Using Ruby JSON
 		business = JSON.parse(access_token.get(path).body)
 
 		#play with the data
 		reviews = Array.new
-		
-		#we will pull these later, not now
-			#review_count = business["review_count"]
-			#overall_rating = business["rating"]
 
 		business["reviews"].each do |reviews|
 			parsed_review = Review.new
@@ -43,3 +40,5 @@ class YelpApiParser
 	end
 
 end
+
+

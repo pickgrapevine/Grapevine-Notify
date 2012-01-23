@@ -1,11 +1,11 @@
+#API wrapper for CityGrid API (a.k.a CitySearch, InsiderPages, Judy's Book)
 require 'rubygems'
 require 'httparty'
-#httparty works well for non-OAuth restful services
 require_relative "../../app/models/review"
 
 class CitySearchApiParser
 
-	 def parse_all_reviews_for_location(location)
+	 def parse_reviews_firstresponsepage_for_location(location)
 	 	publisher_code = '10000001524'
 
 	 	#use in production when passing location id

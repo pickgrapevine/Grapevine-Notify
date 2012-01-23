@@ -1,15 +1,17 @@
+#HTML parser for OpenTable Reviews
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require_relative "../../app/models/review"
+
 
 class OpenTableHTMLParser
 
-	def parse_all_reviews_for_location(location)
+	def parse_reviews_firstresponsepage_for_location(location)
 
 		url = "http://www.opentable.com/las-ramblas-at-hotel-contessa"
 		doc = Nokogiri::HTML(open(url))
 
-		#puts url, doc.at_css("title").text, "====================="
 		reviews = Array.new
 		doc.css("div#BVSubmissionPopupContainer").each do |review|
 		  parsed_review = Review.new
