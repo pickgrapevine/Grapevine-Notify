@@ -1,7 +1,7 @@
 #API wrapper for Yellow Pages
 require 'rubygems'
 require 'httparty'
-#require_relative "../../app/models/review"
+require_relative "../../app/models/review"
 
 class YellowPagesApiParser
 
