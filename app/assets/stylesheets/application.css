@@ -5,8 +5,7 @@
  *
  *= require reset
  *= require base
- *= require tipTip
- *= require css3
+ *= require custom
  *= require ie7
  *= require_self
 */
