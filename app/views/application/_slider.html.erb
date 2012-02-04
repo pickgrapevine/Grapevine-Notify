@@ -37,14 +37,15 @@
                     <p><strong>Just enter in the business name of the restaurant you want to follow below.</strong><br /><br />
                     One you hit the Submit button, you will get an email notice showing you a sample result.<br /><em>Please note we are only servicing San Antonio, TX, USA at the moment during the Beta period.</em></p>                      
                 <div id="g-search">
-                <%= form_tag "/review/email", :method => 'post' do %>
-                    <div>
-                    <%= text_field_tag :location_search, 'Enter Your Business Here..', :class => 'input-field border-radius-left-3px reset-text', :onfocus => "if (this.value == 'Enter Your Business Here..') {this.value = '';}", :onblur => "if (this.value == '') {this.value = 'Enter Your Business Here..';}", :autocomplete => 'off' %>
-                    </div>
+                <div>
+                    <%= form_tag "/review/email", :method => 'post' do %>
+                        <%= text_field_tag :location_search, 'Enter Your Business Here..', :class => 'input-field border-radius-left-3px reset-text', :onfocus => "if (this.value == 'Enter Your Business Here..') {this.value = '';}", :onblur => "if (this.value == '') {this.value = 'Enter Your Business Here..';}", :autocomplete => 'off' %>
+                    <% end %>
+                </div>
                     <div>
                     <%= button_tag 'Get Review', :type => 'submit', :class => 'sprite' %>
                     </div>
-                <% end %>
+           
                 </div>
 				<br /><br />
 				<p>If you don't want to wait, just go straight to our sign up page now!</p>
