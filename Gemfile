@@ -25,6 +25,9 @@ group :test do
   gem 'guard-rspec'
   gem 'webrat', '0.7.3'
   gem "rspec-rails"
+  gem "ZenTest", "~> 4.4.2"
+  gem "autotest-rails", "~> 4.1.0"
+  gem 'gimme'
 end
 
 gem 'mysql'
