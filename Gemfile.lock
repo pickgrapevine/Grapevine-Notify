@@ -104,6 +104,7 @@ GEM
     multi_json (1.0.4)
     multi_xml (0.4.1)
     mysql (2.8.1)
+    newrelic_rpm (3.3.2.1)
     nokogiri (1.5.0)
     oauth (0.4.5)
     pg (0.12.2)
@@ -210,6 +211,7 @@ DEPENDENCIES
   httparty
   jquery-rails
   mysql
+  newrelic_rpm
   nokogiri
   oauth
   pg
