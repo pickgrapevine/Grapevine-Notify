@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 #Gems for analytics and measurements
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 
 #Gems for APIs
 gem "citygrid_api", :git => "git://github.com/CityGrid/citygrid_api.git"
