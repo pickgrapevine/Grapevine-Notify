@@ -1,4 +1,8 @@
 GrapevineNotify::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   match '/home', :to => 'pages#home'
   match '/about', :to => 'pages#about_us'
   match '/contact', :to => 'pages#contact_us'

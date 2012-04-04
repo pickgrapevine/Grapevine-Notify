@@ -11,6 +11,16 @@ class CreateLocations < ActiveRecord::Migration
       t.string :phone_number_2
       t.string :phone_number_3
       t.string :name
+      t.string :url
+      t.string :lat
+      t.string :long
+      t.string :Yelp_ID
+      t.string :CityGrid_ID
+      t.string :GooglePlaces_ID
+      t.string :UrbanSpoon_ID
+      t.string :YellowPages_ID
+      t.string :TripAdvisor_ID
+      t.integer :category_id
 
       t.timestamps
     end

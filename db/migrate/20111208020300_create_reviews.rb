@@ -8,6 +8,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :comment
       t.datetime :date
       t.string :link
+      t.integer :location_id
 
       t.timestamps
     end

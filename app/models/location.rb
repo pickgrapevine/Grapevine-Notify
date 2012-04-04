@@ -1,6 +1,8 @@
 class Location < ActiveRecord::Base
   # see http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
   has_many :reviews , :autosave => true
+  has_and_belongs_to_many :users
+  belongs_to :category
    
   def self.search(location_search)
     if search

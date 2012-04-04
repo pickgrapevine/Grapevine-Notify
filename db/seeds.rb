@@ -34,5 +34,14 @@ Location.create [{:id => '1',
 			   :phone_number_2 => '',
 			   :phone_number_3 => '',
 			   :name => 'Zinc Bistro & Wine Bar',
-			   :url => '/biz/zinc-bistro-and-wine-bar-san-antonio'}]
+			   :url => '/biz/zinc-bistro-and-wine-bar-san-antonio',
+			   :category_id => '1'}]
 puts "Location Data - Done"
+
+puts "Adding a few categories"
+Category.create [{:id => '1',
+			   :category => 'Restaurant'}]
+Category.create [{:id => '2',
+			   :category => 'Hotels'}]
+puts "Categories added"
+
