@@ -253,6 +253,7 @@ DEPENDENCIES
   hominid
   httparty
   jquery-rails
+  multi_json
   mysql
   newrelic_rpm
   nokogiri
