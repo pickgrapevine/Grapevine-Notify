@@ -4,7 +4,7 @@ require 'oauth'
 require 'JSON'
 require_relative "../../app/models/review"
 
-class YelpApiParser
+class YelpReviewParser
 
 	 def parse_reviews_firstresponsepage_for_location(location)
 	 	consumer_key = 'CoPn_PDLyBIom28EwW_vcg'

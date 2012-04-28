@@ -2,11 +2,13 @@
 require 'rubygems'
 require 'oauth'
 require 'JSON'
-require_relative "../../app/models/review"
+require 'pp'
+#require_relative "../../app/models/review"
 
-class YelpApiParser
+class YelpSearchParser
 
-	 def parse_reviews_firstresponsepage_for_location(location)
+	 def search_for_yelp_id#(location, term, lat, long)
+	 	puts "hello"
 	 	consumer_key = 'CoPn_PDLyBIom28EwW_vcg'
 		consumer_secret = 'v6VqDXMzGUpLEnbCGx6xDAwG4OM'
 		token = '8UmXzrrFzbAffWuTpjTiOQkiFKJ3KZzY'
@@ -18,25 +20,19 @@ class YelpApiParser
 		access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
 		#path to use in production, accepting location
-		path = "/v2/business/#{location}"
+		#path = "/v2/search?term=#{term}&ll=#{lat},#{long}"
 
 		#path to use while testing/dev
-		#path = "/v2/business/las-ramblas-san-antonio"
+		path = "/v2/search?term=zinc%20bistro%20wine%20bar&ll=29.4236445,-98.48926999999998"
 
 		# Using Ruby JSON
-		business = JSON.parse(access_token.get(path).body)
+		search = JSON.parse(access_token.get(path).body)
+
+		pp search
 
 		#play with the data
-		reviews = Array.new
+		#location = Array.new
 
-		business["reviews"].each do |reviews|
-			parsed_review = Review.new
-			parsed_review.rating = reviews["rating"]
-			parsed_review.author = reviews["user.name"]
-			parsed_review.comment = reviews["excerpt"]
-			parsed_review.date = reviews["time_created"]
-			reviews << parsed_review
-		end
 	end
 
 end

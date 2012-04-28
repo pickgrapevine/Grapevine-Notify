@@ -1,4 +1,4 @@
-require_relative "../jobs/yelp_api"
+#require_relative "../jobs/yelp_api"
 require_relative "../parser_engine"
 
 namespace :yelpapi do
