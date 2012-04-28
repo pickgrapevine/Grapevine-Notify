@@ -256,7 +256,6 @@ DEPENDENCIES
   hominid
   httparty
   jquery-rails
-  json
   json_pure
   meta_search (>= 1.1.0.pre)
   mysql
