@@ -118,6 +118,7 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.5.3)
+    json_pure (1.7.0)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -255,7 +256,7 @@ DEPENDENCIES
   hominid
   httparty
   jquery-rails
-  json
+  json_pure
   meta_search (>= 1.1.0.pre)
   mysql
   newrelic_rpm
