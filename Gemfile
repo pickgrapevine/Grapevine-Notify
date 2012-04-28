@@ -6,8 +6,10 @@ gem 'json'
 
 #Gems for analytics and measurements
 gem 'newrelic_rpm'
-gem 'activeadmin'
+gem 'activeadmin', "~> 0.4.3"
 gem 'sass-rails', '~> 3.1.5'
+gem "meta_search",  '>= 1.1.0.pre'
+gem "formtastic", "~> 2.1.1"
 
 #Gems for APIs
 gem "citygrid_api", :git => "git://github.com/CityGrid/citygrid_api.git"

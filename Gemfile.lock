@@ -91,8 +91,8 @@ GEM
       railties (>= 3.0.0)
     fastercsv (1.5.4)
     ffi (1.0.11)
-    formtastic (2.2.0)
-      actionpack (>= 3.0)
+    formtastic (2.1.1)
+      actionpack (~> 3.0)
     gimme (0.3.2)
     guard (1.0.1)
       ffi (>= 0.5.0)
@@ -243,12 +243,13 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest (~> 4.4.2)
-  activeadmin
+  activeadmin (~> 0.4.3)
   autotest-rails (~> 4.1.0)
   capybara
   citygrid_api!
   coffee-rails
   factory_girl_rails
+  formtastic (~> 2.1.1)
   gimme
   guard-rspec
   heroku
@@ -257,6 +258,7 @@ DEPENDENCIES
   jquery-rails
   json
   json_pure
+  meta_search (>= 1.1.0.pre)
   mysql
   newrelic_rpm
   nokogiri

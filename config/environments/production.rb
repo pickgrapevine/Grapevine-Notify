@@ -59,5 +59,5 @@ GrapevineNotify::Application.configure do
   config.active_support.deprecation = :notify
 
   #Send emails in production for ActiveAdmin
-  config.action_mailer.default_url_options = { :host => 'http://grapevine-notify.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'grapevine-notify.herokuapp.com' }
 end
