@@ -1,7 +1,7 @@
 #API wrapper for Yelp API
 require 'rubygems'
 require 'oauth'
-#require 'JSON'
+require 'JSON'
 require_relative "../../app/models/review"
 
 class YelpApiParser
@@ -24,7 +24,7 @@ class YelpApiParser
 		#path = "/v2/business/las-ramblas-san-antonio"
 
 		# Using Ruby JSON
-#		business = JSON.parse(access_token.get(path).body)
+		business = JSON.parse(access_token.get(path).body)
 
 		#play with the data
 		reviews = Array.new
