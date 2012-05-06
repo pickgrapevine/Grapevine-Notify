@@ -1,14 +1,13 @@
 #API wrapper for Yelp API
 require 'rubygems'
 require 'oauth'
-require 'JSON'
+require 'json'
 require 'pp'
 #require_relative "../../app/models/review"
 
 class YelpSearchParser
 
 	 def search_for_yelp_id#(location, term, lat, long)
-	 	puts "hello"
 	 	consumer_key = 'CoPn_PDLyBIom28EwW_vcg'
 		consumer_secret = 'v6VqDXMzGUpLEnbCGx6xDAwG4OM'
 		token = '8UmXzrrFzbAffWuTpjTiOQkiFKJ3KZzY'

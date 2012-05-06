@@ -1,7 +1,7 @@
 #API wrapper for Yelp API
 require 'rubygems'
 require 'oauth'
-require 'JSON'
+require 'json'
 require_relative "../../app/models/review"
 
 class YelpReviewParser
