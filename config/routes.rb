@@ -9,7 +9,7 @@ GrapevineNotify::Application.routes.draw do
   match '/faq', :to => 'pages#faq'
   match '/signup', :to => 'pages#sign_up'
   match '/blog', :to => 'pages#blog'
-
+  match '/result', :to => 'pages#output_page'
   get "review/index"
 
   get "location/index"
