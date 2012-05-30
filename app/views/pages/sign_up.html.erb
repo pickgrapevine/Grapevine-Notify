@@ -1,7 +1,27 @@
 <% content_for :head do%>
-  <%= javascript_include_tag "https://js.stripe.com/v1/" %>
-  <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
-   
+  <%= stylesheet_link_tag "recurly/recurly.css" %>
+  <%= javascript_include_tag "recurly/recurly.js" %>
+   <script type="text/javascript">
+    $(function(){
+        Recurly.config({
+          subdomain: 'grapevine'
+          , currency: 'USD'
+          , country: 'US'
+          });
+          
+          Recurly.buildSubscriptionForm({
+          target: '#recurly-subscribe'
+          , planCode: 'basic'
+          , successURL: 'confirmation.html'
+          , distinguishContactFromBillingInfo: true
+          , collectCompany: true
+          , collectPhone: true
+          , termsOfServiceURL: 'http://www.pickgrapevine.com/tos'
+          });
+
+          });
+  </script>
+
 <% end %>
 <!--Body content-->
 <div class="full-width-wrapper">
@@ -11,40 +31,9 @@
     <p>
     Reviews are checked daily about your company (or competitor), when we find one we'll send you a Text or Email directly to you. Never be in the dark again.
     </p>
-<!--Stripe testing-->
-    <%= form_for @subscription do |f| %>
-  <% if @subscription.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
-
-      <ul>
-      <% @subscription.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div id ="recurly-subscribe">
     </div>
-  <% end %>
-  <%= f.hidden_field :plan_id %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>  
-  <div class="field">
-      <%= label_tag :card_number, "Credit Card Number " %>
-      <%= text_field_tag :card_number, nil, name: nil %>
-  </div>
-  <div class="field">
-      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-      <%= text_field_tag :card_code, nil, name: nil %>
-  </div>
-  <div class="field">
-    <%= label_tag :card_month, "Card Expiration" %>
-    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
-    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
-  </div>
-  <div class="actions"><%= f.submit "Subscribe" %></div>
-<% end %>
-<!--/Stripe testing-->
+
   </div>
 </div>
 
